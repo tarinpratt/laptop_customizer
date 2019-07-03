@@ -2,40 +2,20 @@ import React, { Component } from 'react';
 
 
 class Features extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      selected: {
-        Processor: {
-            name: '17th Generation Intel Core HB (7 Core with donut spare)',
-            cost: 700
-          },
-        "Operating System": {
-            name: 'Ubuntu Linux 16.04',
-            cost: 200
-          },
-        "Video Card":{
-            name: 'Toyota Corolla 1.5v',
-            cost: 1150.98
-          },
-        Display: {
-            name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
-            cost: 1500
-          }
-      }
-    }
-  }
 
+  
   render(){
+  
   return Object.keys(this.props.features)
   .map(key => {
     const options = this.props.features[key].map((item, index) => {
-      const selectedClass = item.name === this.state.selected[key].name ? 'feature__selected' : '';
+      const selectedClass = item.name === this.props.selected[key].name ? 'feature__selected' : '';
       const featureClass = 'feature__option ' + selectedClass;
       return <li key={index} className="feature__item">
+        
         <div className={featureClass}
           
-          onClick={e => this.updateFeature(key, item)}>
+          onClick={e => this.props.updateFeature(key, item)}>
             { item.name }
             ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
               .format(item.cost) })

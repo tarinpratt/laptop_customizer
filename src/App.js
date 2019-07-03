@@ -37,7 +37,6 @@ class App extends Component {
       selected
     });
   }
-
   render() {
 
     return (
@@ -48,19 +47,19 @@ class App extends Component {
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
             <Features 
             features={this.props.features}
-            selected={this.state.selected}
-            updateFeature={this.updateFeature}
+         
+            onUpdateFeature={this.updateFeature}
             />
           </section>
           <section className="main__summary">
             <h3>NEW GREENLEAF 2018</h3>
             <Summary 
-            selected={this.state.selected}/>
+            />
             <div className="summary__total">
              <TotalLabel />
               <div className="summary__total__value">
                 <Total 
-                selected={this.state.selected}/>
+              />
               </div>
             </div>
           </section>

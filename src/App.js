@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FeatureHeader from './FeatureHeader';
-import Features from './Features';
+import FeatureList from './FeatureList';
 import Header from './Header';
 import Total from './Total';
 import TotalLabel from './TotalLabel';
@@ -47,10 +47,10 @@ state = {
         <main>
           <section className="main__form">
             <FeatureHeader />
-            <Features
+            <FeatureList
             features={this.props.features}
             selected={this.state.selected}
-            onUpdateFeature={this.updateFeature}
+            updateFeature={this.updateFeature}
             />
           </section>
           <section className="main__summary">
@@ -67,6 +67,7 @@ state = {
               </div>
             </div>
           </section>
+
         </main>
       </div>
     );
